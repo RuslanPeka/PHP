@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        echo "Основная ветвь №2";
+        echo "Подветка ветви PHP_2";
     ?>
 </body>
 </html>
