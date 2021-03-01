@@ -18,6 +18,9 @@
         <div class="header_second_line">
             <h3>Введение в Git</h3>
         </div>
+        <?php
+            echo "Подветка ветви PHP_1";
+        ?>
     </header>
 </body>
 </html>
