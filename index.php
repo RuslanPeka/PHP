@@ -18,6 +18,16 @@
         <div class="header_second_line">
             <h3>Введение в Git</h3>
         </div>
+        <p>
+            <?php
+                echo "Коммит №1 Основной ветки №1";
+            ?>
+        </p>
+        <p>
+            <?php
+                echo "Коммит №2 Основной ветки №1";
+            ?>
+        </p>
     </header>
 </body>
 </html>
