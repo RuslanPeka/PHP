@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+        echo "Основная ветвь №2";
+    ?>
 </body>
 </html>
