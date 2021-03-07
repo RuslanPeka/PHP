@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, rgb(225, 255, 225), white, rgb(225, 255, 225));
+    background: linear-gradient(90deg, rgb(225, 255, 225), aliceblue, rgb(225, 255, 225));
 }
 
 .line {
@@ -55,4 +55,22 @@ header {
     width: 60%;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0), lightgreen, rgba(255, 255, 255, 0));
     color: rgb(0, 58, 0);
+}
+
+main {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 90%;
+    border: 2px solid green;
+}
+
+.work {
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    width: 96%;
+    min-height: 100px;
+    background-color: white;
+    font-size: 20px;
 }

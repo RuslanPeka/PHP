@@ -1,7 +1,3 @@
-<?php
-    $var = "Text";
-    echo $var;
-?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -17,16 +13,21 @@
     </div>
     <header>
         <div class="header_main_line">
-            <h1>Курс PHP - Занятие №2</h1>
+            <h1>Курс PHP - Занятие №1</h1>
         </div>
         <div class="header_second_line">
-            <h3>Введение в PhpStorm</h3>
+            <h3>Введение в Git</h3>
         </div>
+        <p>
+            <?php
+                echo "Коммит №1 Основной ветки №1";
+            ?>
+        </p>
+        <p>
+            <?php
+                echo "Коммит №2 Основной ветки №1";
+            ?>
+        </p>
     </header>
-    <main>
-        <section class="work">
-
-        </section>
-    </main>
 </body>
 </html>
