@@ -8,6 +8,13 @@ body {
     background: linear-gradient(90deg, rgb(225, 255, 225), aliceblue, rgb(225, 255, 225));
 }
 
+hr {
+    border: none;
+    color: green;
+    background-color: green;
+    height: 2px;
+}
+
 .line {
     padding-top: 2px;
     width: 100%;

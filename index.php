@@ -1,6 +1,5 @@
 <?php
-    $var = "Text";
-    echo $var;
+    require_once "func/func.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,21 +11,55 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="line">
-        <p>ЛУЧШИЙ В МИРЕ САЙТ</p>
+<div class="line">
+    <p>ЛУЧШИЙ В МИРЕ САЙТ</p>
+</div>
+<header>
+    <div class="header_main_line">
+        <h1>Курс PHP - Занятие №3</h1>
     </div>
-    <header>
-        <div class="header_main_line">
-            <h1>Курс PHP - Занятие №2</h1>
-        </div>
-        <div class="header_second_line">
-            <h3>Введение в PhpStorm</h3>
-        </div>
-    </header>
-    <main>
-        <section class="work">
-
-        </section>
-    </main>
+    <div class="header_second_line">
+        <h3>Операции с типами данных</h3>
+    </div>
+</header>
+<main>
+    <section class="work">
+        <?php
+            head('1. Вывод массива:');
+            $test = [
+                1,
+                2,
+                'three' => 3,
+                3 => [
+                    1,
+                    2,
+                    3,
+                    4,
+                ],
+                [
+                    1,
+                    2,
+                    3,
+                    4,
+                ],
+            ];
+            arr($test);
+            hr();
+            head('2. Работа с ключами массива:');
+            $result = [];
+            foreach($test as $k => $v) {
+                if(is_array($v)) {
+                    foreach($v as $k1 => $v1) {
+                        $result[$k1] += $v1;
+                    }
+                } else {
+                    $result[$k] += $v;
+                }
+            }
+            arr($result);
+            hr();
+        ?>
+    </section>
+</main>
 </body>
 </html>
