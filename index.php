@@ -13,121 +13,54 @@
 </div>
 <header>
     <div class="header_main_line">
-        <h1>Курс PHP - Занятие №3</h1>
+        <h1>Курс PHP - Занятие №4</h1>
     </div>
     <div class="header_second_line">
-        <h3>Операции с типами данных</h3>
+        <h3>Функции</h3>
     </div>
 </header>
 <main>
     <section class="work">
         <?php
-            echo '<h3>1. Сумма вторых элементов массива произвольной вложенности:</h3>';
-            // 1) Записываем массив:
-            $testArray = [
-                1,
-                'two' => 2,
-                3,
-                4 => [
-                    1,
-                    2,
-                    3 => [
-                        1,
-                        "2 слона",
-                        3,
-                        4,
-                        5,
-                    ],
-                ],
-            ];
-
-            // 2) Функция для суммирования всех 2-х элементов:
-            function sum2($array)
+            echo '<h3>1. Область видимости функций</h3>';
+            test('Привет! =)');
+            function test(string $text)
             {
-                $sum = 0;
-                $counter = 0;
-                foreach($array as $value) {
-                    if(is_array($value)) {
-                        $sum += sum2($value);
-                    } else {
-                        $counter++;
-                        if($counter == 2) {
-                            if(!is_array($value)) {
-                                if(is_numeric($value)) $sum += $value;
-                            }
-                        }
-                    }
-                }
-                return $sum;
+                echo $text;
             }
-
-            // 3) Вывод результатов:
-            echo 'Рассматриваемый массив:<br>';
-            echo '<pre>';
-            print_r($testArray);
-            echo '</pre><br>';
-            echo 'Сумма вторых элементов: <b>' . sum2($testArray) . '</b>';
             echo '<br><br><hr><br>';
-
-            echo '<h3>2.1. Определение количества символов в строке (с учётом регистра):</h3>';
-            // 1) Записываем строку:
-            $string = 'My mistery StringgGG';
-
-            // 2) Превращаем строку в массив с учётом лишь уникальных символов:
-            $arrayFromString = array_unique(mb_str_split($string));
-
-            // 3) Выполняим поиск количества их вхождений (пробелы - не учитываются, с помощью условия if() ):
-            $arrayOfResult = [];
-            foreach($arrayFromString as $value) {
-                if($value != ' ') {
-                    $resultKey = $value;
-                    $resultValue = mb_substr_count($string, $value);
-                    $arrayOfResult += [$resultKey => $resultValue];
-                }
+            echo '<h3>2. Область видимости функций, анонимная функция</h3>';
+            //$closure('Привет! =)');
+            echo 'Вариант с замыканием - не срабатывает';
+            /*
+            $closure = function ($test)
+            {
+                echo $test;
+            };
+            */
+            echo '<br><br><hr><br>';
+            echo '<h3>3. Область видимости функций, замыкание</h3>';
+            $text = ' Сообщение';
+            $closure = function ($test) use ($text)
+            {
+                echo $test . $text;
+            };
+            $closure('Привет! =)');
+            echo '<br><br><hr><br>';
+            echo '<h3>4. Статическая функция</h3>';
+            function statt(int $a = 1)
+            {
+                static $var;
+                $var += $a;
+                echo $var . '<br>';
             }
-
-            // 4) Отсортируем массив результатов для удобства чтения:
-            ksort($arrayOfResult);
-
-            // 5) Вывод результатов:
-            echo 'Строка: <b>' . $string . '</b><br>';
-            echo 'Массив результатов:<br>';
-            echo '<pre>';
-            print_r($arrayOfResult);
-            echo '</pre>';
-            echo '<br><hr><br>';
-
-            echo '<h3>2.2. Определение количества символов в строке (БЕЗ учёта регистра):</h3>';
-            // 1) Записываем строку:
-            $firstString = 'My mistery StringgGG';
-
-            // 2) Переводим всё в нижний регистр:
-            $string = mb_strtolower($firstString);
-
-            // 3) Превращаем строку в массив с учётом лишь уникальных символов:
-            $arrayFromString = array_unique(mb_str_split($string));
-
-            // 4) Выполняим поиск количества их вхождений (пробелы - не учитываются, с помощью условия if() ):
-            $arrayOfResult = [];
-            foreach($arrayFromString as $value) {
-                if($value != ' ') {
-                    $resultKey = $value;
-                    $resultValue = mb_substr_count($string, $value);
-                    $arrayOfResult += [$resultKey => $resultValue];
-                }
-            }
-
-            // 5) Отсортируем массив результатов для удобства чтения:
-            ksort($arrayOfResult);
-
-            // 6) Вывод результатов:
-            echo 'Строка: <b>' . $firstString . '</b><br>';
-            echo 'Массив результатов:<br>';
-            echo '<pre>';
-            print_r($arrayOfResult);
-            echo '</pre>';
-            echo '<br><hr><br>';
-            ?>
+            statt(10);
+            statt(20);
+            statt(30);
+            statt(40);
+            statt(50);
+        echo '<br><br><hr><br>';
+        ?>
     </section>
 </main>
 </body>
