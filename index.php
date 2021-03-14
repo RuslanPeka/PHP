@@ -1,6 +1,3 @@
-<?php
-    require_once "func/func.php";
-?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -29,7 +26,7 @@
             // 1) Записываем массив:
             $testArray = [
                 1,
-                2,
+                'two' => 2,
                 3,
                 4 => [
                     1,
@@ -55,7 +52,9 @@
                     } else {
                         $counter++;
                         if($counter == 2) {
-                            if(!is_array($value)) $sum += $value;
+                            if(!is_array($value)) {
+                                if(is_numeric($value)) $sum += $value;
+                            }
                         }
                     }
                 }
