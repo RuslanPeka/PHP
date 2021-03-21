@@ -35,7 +35,7 @@
                 'herbivorous3' => 'Hare',
             ];
 
-            abstract function listOfAnimals();
+            abstract public function listOfAnimals();
         }
 
         // 2. Создание абстрактного класса - Транспортные средства (Vehicles)
@@ -50,13 +50,13 @@
                 'truck2' => 'Scania',
             ];
 
-            abstract function listOfVehicles();
+            abstract public function listOfVehicles();
         }
 
         // 3. Создание наследников от животных - хищники (Predators), травоядные (Herbivores)
         class Predators extends Animals
         {
-            function listOfAnimals()
+            public function listOfAnimals()
             {
                 $animals = $this->animalsAll;
                 foreach($animals as $type => $kind) {
@@ -75,7 +75,7 @@
 
         class Herbivores extends Animals
         {
-            function listOfAnimals()
+            public function listOfAnimals()
             {
                 $animals = $this->animalsAll;
                 foreach($animals as $type => $kind) {
@@ -96,7 +96,7 @@
         // 4. Создание наследников от транспортных средств - лодки (Boats), легковые авто (PassengerCars), грузовики (Trucks)
         class Boats extends Vehicles
         {
-            function listOfVehicles()
+            public function listOfVehicles()
             {
                 $vehicles = $this->vehiclesAll;
                 foreach($vehicles as $type => $kind) {
@@ -115,7 +115,7 @@
 
         class PassengerCars extends Vehicles
         {
-            function listOfVehicles()
+            public function listOfVehicles()
             {
                 $vehicles = $this->vehiclesAll;
                 foreach($vehicles as $type => $kind) {
@@ -134,7 +134,7 @@
 
         class Trucks extends Vehicles
         {
-            function listOfVehicles()
+            public function listOfVehicles()
             {
                 $vehicles = $this->vehiclesAll;
                 foreach($vehicles as $type => $kind) {
