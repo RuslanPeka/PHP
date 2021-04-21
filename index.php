@@ -13,10 +13,10 @@
 </div>
 <header>
     <div class="header_main_line">
-        <h1>Курс PHP - Занятие №3</h1>
+        <h1>Курс PHP - Занятие №15</h1>
     </div>
     <div class="header_second_line">
-        <h3>Функции</h3>
+        <h3>Чистый код</h3>
     </div>
 </header>
 <main>
