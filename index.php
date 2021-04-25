@@ -1,3 +1,9 @@
+<?php
+    require_once 'Classes/PurchaseInCN.php';
+    require_once 'Classes/PurchaseInDE.php';
+    require_once 'Classes/PurchaseInUA.php';
+    require_once 'Classes/PurchaseInUK.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -21,8 +27,30 @@
 </header>
 <main>
     <section class="work">
+        <form action="" method="post">
+            <h2>Доставка автомобилей США в другие страны!</h2>
+            <p>Оценка стоимости автомобиля <b>Ford Mustang Mach-E.</b></p>
+            <p><b>Выбирите, пожалуйста, страну доставки:</b></p>
+            <select name="country" id="">
+                <option value="CN">Китай</option>
+                <option value="DE">Германия</option>
+                <option value="UA">Украина</option>
+                <option value="UK">Великобритания</option>
+            </select>
+            <button type="submit">Проверить!</button>
+            <br><br><h6>Обратите внимание, что мы делаем доставку только в страны, указанные в перечне.<br>
+            На данный момент мы работаем над расширением зоны сотрудничества. Приносим извинения за неудобство.</h6><br><hr><br>
+        </form>
         <?php
+            if(isset($_POST['country']) && is_string($_POST['country'])) {
+                $className = 'Classes\PurchaseIn';
 
+                if($_POST['country'] == 'CN' || $_POST['country'] == 'DE' || $_POST['country'] == 'UA' || $_POST['country'] == 'UK') $className .= $_POST['country'];
+                else die('К сожалению, мы не производим доставку в данную страну.');
+
+                $request = new $className;
+                $request->responseToRequest();
+            }
         ?>
     </section>
 </main>
