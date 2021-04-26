@@ -1,8 +1,9 @@
 <?php
-    require_once 'Classes/PurchaseInCN.php';
-    require_once 'Classes/PurchaseInDE.php';
-    require_once 'Classes/PurchaseInUA.php';
-    require_once 'Classes/PurchaseInUK.php';
+    use Classes\PurchaseInCN;
+    use Classes\PurchaseInDE;
+    use Classes\PurchaseInUA;
+    use Classes\PurchaseInUK;
+    require_once "vendor/autoload.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">

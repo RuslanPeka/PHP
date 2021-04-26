@@ -2,7 +2,7 @@
 
 namespace Classes;
 
-require_once 'GoodsFromUSA.php';
+use Classes\GoodsFromUSA;
 
 class PurchaseInCN extends GoodsFromUSA
 {
@@ -23,6 +23,7 @@ class PurchaseInCN extends GoodsFromUSA
 
     public function preparePrice()
     {
+        $this->getInfo();
         $result = $this->taxAccounting($this->tax['China']);
         $result = $this->deliveryAccounting($result, $this->delivery['China']);
         $result = $this->currencyСonversion($result, $this->currencyСonversions['China']);

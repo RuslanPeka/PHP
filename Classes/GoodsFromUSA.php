@@ -15,7 +15,7 @@ abstract class GoodsFromUSA
     protected $delivery = array();
     protected $tax = array();
 
-    public function __construct()
+    public function getInfo()
     {
         $this->currencyСonversions = require_once 'info/currencyСonversions.php';
         $this->currencyMarks = require_once 'info/currencyMarks.php';
