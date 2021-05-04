@@ -23,10 +23,9 @@ class PurchaseInCN extends GoodsFromUSA
 
     public function preparePrice()
     {
-        $this->getInfo();
-        $result = $this->taxAccounting($this->tax['China']);
-        $result = $this->deliveryAccounting($result, $this->delivery['China']);
-        $result = $this->currencyСonversion($result, $this->currencyСonversions['China']);
+        $result = $this->taxAccounting($this->data['tax']['China']);
+        $result = $this->deliveryAccounting($result, $this->data['delivery']['China']);
+        $result = $this->currencyСonversion($result, $this->data['currencyСonversions']['China']);
         return $result;
     }
 
@@ -34,6 +33,6 @@ class PurchaseInCN extends GoodsFromUSA
     {
         echo 'Уважаемый клиент, Вы можете купить автомобиль <b>' . $this->product . '</b> сделав предзаказ у нас!<br>';
         echo 'Cтоимость в США: <b>' . $this->cost . ' $</b>.<br>';
-        echo 'Стоимость в Вашей стране, с учётом доставки: <b>' . $this->preparePrice() . ' ' . $this->currencyMarks['China'] . '</b>.';
+        echo 'Стоимость в Вашей стране, с учётом доставки: <b>' . $this->preparePrice() . ' ' . $this->data['currencyMarks']['China'] . '</b>.';
     } 
 }

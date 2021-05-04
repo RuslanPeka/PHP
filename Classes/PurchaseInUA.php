@@ -23,10 +23,9 @@ class PurchaseInUA extends GoodsFromUSA
 
     public function preparePrice()
     {
-        $this->getInfo();
-        $result = $this->taxAccounting($this->tax['Ukraine']);
-        $result = $this->deliveryAccounting($result, $this->delivery['Ukraine']);
-        $result = $this->currencyСonversion($result, $this->currencyСonversions['Ukraine']);
+        $result = $this->taxAccounting($this->data['tax']['Ukraine']);
+        $result = $this->deliveryAccounting($result, $this->data['delivery']['Ukraine']);
+        $result = $this->currencyСonversion($result, $this->data['currencyСonversions']['Ukraine']);
         return $result;
     }
 
@@ -34,6 +33,6 @@ class PurchaseInUA extends GoodsFromUSA
     {
         echo 'Уважаемый клиент, Вы можете купить автомобиль <b>' . $this->product . '</b> сделав предзаказ у нас!<br>';
         echo 'Cтоимость в США: <b>' . $this->cost . ' $</b>.<br>';
-        echo 'Стоимость в Вашей стране, с учётом доставки: <b>' . $this->preparePrice() . ' ' . $this->currencyMarks['Ukraine'] . '</b>.';
+        echo 'Стоимость в Вашей стране, с учётом доставки: <b>' . $this->preparePrice() . ' ' . $this->data['currencyMarks']['Ukraine'] . '</b>.';
     } 
 }

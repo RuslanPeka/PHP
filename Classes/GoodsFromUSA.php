@@ -8,19 +8,13 @@ abstract class GoodsFromUSA
      *  Currency of the Cost and Delivery - USA ($).
      *  Tax is indicated as a percentage of the Cost.
      */
+    protected $data = array();
     protected $product = 'Ford Mustang Mach-E';
     protected $cost = 43000;
-    protected $currencyСonversions = array();
-    protected $currencyMarks = array();
-    protected $delivery = array();
-    protected $tax = array();
 
-    public function getInfo()
+    public function __construct()
     {
-        $this->currencyСonversions = require_once 'info/currencyСonversions.php';
-        $this->currencyMarks = require_once 'info/currencyMarks.php';
-        $this->delivery = require_once 'info/delivery.php';
-        $this->tax = require_once 'info/taxes.php';
+        $this->data = require_once 'configs/dataConfig.php';
     }
 
     public function getProduct()
@@ -30,7 +24,7 @@ abstract class GoodsFromUSA
 
     public function getCost()
     {
-        return $this->price;
+        return $this->cost;
     }
 
     abstract public function taxAccounting(float $tax);

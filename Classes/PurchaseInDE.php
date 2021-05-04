@@ -23,10 +23,9 @@ class PurchaseInDE extends GoodsFromUSA
 
     public function preparePrice()
     {
-        $this->getInfo();
-        $result = $this->taxAccounting($this->tax['Germany']);
-        $result = $this->deliveryAccounting($result, $this->delivery['Germany']);
-        $result = $this->currencyСonversion($result, $this->currencyСonversions['Germany']);
+        $result = $this->taxAccounting($this->data['tax']['Germany']);
+        $result = $this->deliveryAccounting($result, $this->data['delivery']['Germany']);
+        $result = $this->currencyСonversion($result, $this->data['currencyСonversions']['Germany']);
         return $result;
     }
 
@@ -34,6 +33,6 @@ class PurchaseInDE extends GoodsFromUSA
     {
         echo 'Уважаемый клиент, Вы можете купить автомобиль <b>' . $this->product . '</b> сделав предзаказ у нас!<br>';
         echo 'Cтоимость в США: <b>' . $this->cost . ' $</b>.<br>';
-        echo 'Стоимость в Вашей стране, с учётом доставки: <b>' . $this->preparePrice() . ' ' . $this->currencyMarks['Germany'] . '</b>.';
+        echo 'Стоимость в Вашей стране, с учётом доставки: <b>' . $this->preparePrice() . ' ' . $this->data['currencyMarks']['Germany'] . '</b>.';
     } 
 }
