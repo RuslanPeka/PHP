@@ -1,0 +1,17 @@
+
+{
+    "name": "php/php",
+    "type": "project",
+    "description": "The test.",
+    "license": "MIT",
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "classes/"
+        }
+    }
+}
